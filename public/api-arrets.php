@@ -9,6 +9,7 @@ $pdo = App\Database::getConnection();
 $stmt = $pdo->query('SELECT * FROM arret');
 $arrets = $stmt->fetchAll();
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: http://localhost:5173');
 foreach ($arrets as &$arret) {
     $arret['latitude'] = (float) $arret['latitude'];
     $arret['longitude'] = (float) $arret['longitude'];
